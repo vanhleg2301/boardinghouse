@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import Header from "../../components/Header";
 import Sidebar from "../../components/Sidebar";
 import AddTenantModal from "../../components/AddTenantModal";
-import "../styles/TenantManagement.css";
+import SearchFilter from "../../components/SearchFilter";
+import "../../styles/TenantManagement.css";
 
 const TenantManagement = () => {
 	const [searchTerm, setSearchTerm] = useState("");
@@ -30,6 +31,12 @@ const TenantManagement = () => {
 		},
 	];
 
+	const filterOptions = [
+		{ value: "", label: "Tất cả trạng thái" },
+		{ value: "active", label: "Đang thuê" },
+		{ value: "inactive", label: "Đã rời" },
+	];
+
 	const handleAddTenant = (tenantData) => {
 		// Xử lý dữ liệu người thuê mới ở đây
 		console.log("New tenant data:", tenantData);
@@ -53,29 +60,14 @@ const TenantManagement = () => {
 							</button>
 						</div>
 
-						<div className="search-filter-container">
-							<div className="search-box">
-								<h3>Tìm kiếm</h3>
-								<input
-									type="text"
-									placeholder="Tìm kiếm theo tên, số điện thoại..."
-									value={searchTerm}
-									onChange={(e) => setSearchTerm(e.target.value)}
-								/>
-							</div>
-
-							<div className="filter-box">
-								<h3>Lọc</h3>
-								<select
-									value={filterStatus}
-									onChange={(e) => setFilterStatus(e.target.value)}
-								>
-									<option value="">Tất cả trạng thái</option>
-									<option value="active">Đang thuê</option>
-									<option value="inactive">Đã rời</option>
-								</select>
-							</div>
-						</div>
+						<SearchFilter
+							searchTerm={searchTerm}
+							setSearchTerm={setSearchTerm}
+							filterStatus={filterStatus}
+							setFilterStatus={setFilterStatus}
+							searchPlaceholder="Tìm kiếm theo tên, số điện thoại..."
+							filterOptions={filterOptions}
+						/>
 
 						<div className="tenants-table">
 							<table>

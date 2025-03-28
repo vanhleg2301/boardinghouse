@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import Header from "../../components/Header";
 import Sidebar from "../../components/Sidebar";
 import NotificationModal from "../../components/NotificationModal";
-import "../styles/BillManagement.css";
+import SearchFilter from "../../components/SearchFilter";
+import "../../styles/BillManagement.css";
 
 const BillManagement = () => {
 	const [searchTerm, setSearchTerm] = useState("");
@@ -32,6 +33,12 @@ const BillManagement = () => {
 
 	const unpaidTenants = bills.filter((bill) => bill.status === "Chưa");
 
+	const filterOptions = [
+		{ value: "", label: "Tất cả trạng thái" },
+		{ value: "paid", label: "Đã thanh toán" },
+		{ value: "unpaid", label: "Chưa thanh toán" },
+	];
+
 	return (
 		<div className="dashboard-container">
 			<Header />
@@ -53,29 +60,14 @@ const BillManagement = () => {
 							</div>
 						</div>
 
-						<div className="search-filter-container">
-							<div className="search-box">
-								<h3>Tìm kiếm phòng</h3>
-								<input
-									type="text"
-									placeholder="Tìm kiếm..."
-									value={searchTerm}
-									onChange={(e) => setSearchTerm(e.target.value)}
-								/>
-							</div>
-
-							<div className="filter-box">
-								<h3>Lọc</h3>
-								<select
-									value={filterStatus}
-									onChange={(e) => setFilterStatus(e.target.value)}
-								>
-									<option value="">Trạng thái</option>
-									<option value="paid">Đã thanh toán</option>
-									<option value="unpaid">Chưa thanh toán</option>
-								</select>
-							</div>
-						</div>
+						<SearchFilter
+							searchTerm={searchTerm}
+							setSearchTerm={setSearchTerm}
+							filterStatus={filterStatus}
+							setFilterStatus={setFilterStatus}
+							searchPlaceholder="Tìm kiếm theo số phòng hoặc tên người thuê..."
+							filterOptions={filterOptions}
+						/>
 
 						<div className="bills-table">
 							<table>

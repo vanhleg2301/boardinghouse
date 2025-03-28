@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
-import "../styles/Dashboard.css";
+import "../../styles/Dashboard.css";
 import Header from "../../components/Header";
 import Sidebar from "../../components/Sidebar";
 import DashboardCard from "../../components/DashboardCard";
