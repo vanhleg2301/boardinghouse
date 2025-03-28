@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
-import AddRoomModal from "../components/AddRoomModal";
+import Header from "../../components/Header";
+import Sidebar from "../../components/Sidebar";
+import AddRoomModal from "../../components/AddRoomModal";
 import "../styles/RoomManagement.css";
 
 const RoomManagement = () => {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
-import NotificationModal from "../components/NotificationModal";
+import Header from "../../components/Header";
+import Sidebar from "../../components/Sidebar";
+import NotificationModal from "../../components/NotificationModal";
 import "../styles/BillManagement.css";
 
 const BillManagement = () => {
