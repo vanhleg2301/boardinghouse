@@ -39,7 +39,7 @@ const Login = () => {
 				};
 				try {
 					const response = await axios.post(
-						"http://localhost:3000/api/v1/register",
+						"http://localhost:3000/users/register",
 						formData
 					);
 					toast.success("Registration successfull");
