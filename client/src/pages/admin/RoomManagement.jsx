@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import Header from "../../components/Header";
 import Sidebar from "../../components/Sidebar";
 import AddRoomModal from "../../components/AddRoomModal";
-import "../styles/RoomManagement.css";
+import SearchFilter from "../../components/SearchFilter";
+import "../../styles/RoomManagement.css";
 
 const RoomManagement = () => {
 	const [searchTerm, setSearchTerm] = useState("");
@@ -28,8 +29,13 @@ const RoomManagement = () => {
 		},
 	];
 
+	const filterOptions = [
+		{ value: "", label: "Tất cả trạng thái" },
+		{ value: "occupied", label: "Đã thuê" },
+		{ value: "vacant", label: "Trống" },
+	];
+
 	const handleAddRoom = (roomData) => {
-		// Xử lý dữ liệu phòng mới ở đây
 		console.log("New room data:", roomData);
 		setIsModalOpen(false);
 	};
@@ -57,29 +63,14 @@ const RoomManagement = () => {
 							onSubmit={handleAddRoom}
 						/>
 
-						<div className="search-filter-container">
-							<div className="search-box">
-								<h3>Tìm kiếm phòng</h3>
-								<input
-									type="text"
-									placeholder="Tìm kiếm..."
-									value={searchTerm}
-									onChange={(e) => setSearchTerm(e.target.value)}
-								/>
-							</div>
-
-							<div className="filter-box">
-								<h3>Lọc</h3>
-								<select
-									value={filterStatus}
-									onChange={(e) => setFilterStatus(e.target.value)}
-								>
-									<option value="">Trạng thái</option>
-									<option value="occupied">Đã thuê</option>
-									<option value="vacant">Trống</option>
-								</select>
-							</div>
-						</div>
+						<SearchFilter
+							searchTerm={searchTerm}
+							setSearchTerm={setSearchTerm}
+							filterStatus={filterStatus}
+							setFilterStatus={setFilterStatus}
+							searchPlaceholder="Tìm kiếm theo số phòng..."
+							filterOptions={filterOptions}
+						/>
 
 						<div className="rooms-table">
 							<table>

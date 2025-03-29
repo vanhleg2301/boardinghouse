@@ -21,6 +21,7 @@
   font-weight: 600;
   background: linear-gradient(90deg, #1a237e, #0288d1);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -43,50 +44,6 @@
 .add-tenant-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(2, 136, 209, 0.4);
-}
-
-.search-filter-section {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 24px;
-  margin-bottom: 32px;
-}
-
-.search-box {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-}
-
-.filter-box {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-}
-
-.search-box h3, .filter-box h3 {
-  font-size: 1.1rem;
-  color: #1a237e;
-  margin-bottom: 12px;
-  font-weight: 500;
-}
-
-.search-box input, .filter-box select {
-  width: 100%;
-  padding: 12px 16px;
-  border: 1px solid #e1e4e8;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  background-color: #f8f9fa;
-}
-
-.search-box input:focus, .filter-box select:focus {
-  outline: none;
-  border-color: #0288d1;
-  box-shadow: 0 0 0 3px rgba(2, 136, 209, 0.1);
 }
 
 .tenants-table {

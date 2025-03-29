@@ -8,10 +8,11 @@ import {
 	Register,
 } from "./pages";
 import { ToastContainer } from "react-toastify";
-import RoomManagement from "./pages/RoomManagement";
-import BillManagement from "./pages/BillManagement";
-import TenantManagement from "./pages/TenantManagement";
-import UserDashboard from "./pages/UserDashboard";
+import RoomManagement from "./pages/admin/RoomManagement";
+import BillManagement from "./pages/admin/BillManagement";
+import TenantManagement from "./pages/admin/TenantManagement";
+import UserDashboard from "./pages/tenant/UserDashboard";
+import UserProfile from "./components/UserProfile";
 
 const router = createBrowserRouter([
 	{
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
 			{
 				path: "user-dashboard",
 				element: <UserDashboard />,
+			},
+			{
+				path: "profile",
+				element: <UserProfile />,
 			},
 			{
 				path: "rooms",
